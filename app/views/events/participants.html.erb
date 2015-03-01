@@ -1,0 +1,27 @@
+<div class="row no-gutters">
+  <div class="col-sm-2">
+   <%= render 'sidebar' %>
+ </div>
+  <div class="col-sm-7">
+      <div class="row no-gutters">
+        <div class="col-sm-12 ">
+          <div class="heading">
+            <span class="date"><h4>21st December 2015  &nbsp;<%= fa_icon "calendar" %> <br></h4></span>
+            <h1> <%= @event.title.upcase %> </h1> 
+            organized by: <%= @event.user.name %> <br>
+          </div>
+        </div>
+        <div class="col-sm-12"><br>
+        <div class="container">
+          <div class="row">
+
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+  </div>
+  <div class="col-sm-3">
+    <%= render 'chat' %>
+  </div>
+</div>
