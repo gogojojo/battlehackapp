@@ -20,17 +20,11 @@
               <%#<%= link_to 'edit event', edit_event_path(@event.id) %> 
               <% if @event.participants != nil %>
               <% if @event.participants.include?(current_user.id.to_s) %>
-                <%= link_to 'remove yoself', part_path %><br>
+                <%= link_to 'Join The Trip', part_path %><br>
               <% else %>
                 <%= link_to 'add yoself', part_path %><br>
               <% end %>
-              <h2> List of Participants </h2>
-              <% @event.participants.each do |event| %>
-              Paid amount: <%= @event.amount[@event.participants.index(event)] %>
-              <% @a = User.find_by(id: event) %> <br>
-              <%= @a.name %>  <br>
-              <%= @a.email %><br>
-              <% end %>
+          
               <% if @event.participants.include?(current_user.id.to_s) %>
               <% if ( ((@event.cost/@event.participants.length) - (@event.amount[@event.participants.index(current_user.id.to_s)])).round(2) ) < 1   %>
               <span class ="pay-now"> Thanks for Chipping In </span>
