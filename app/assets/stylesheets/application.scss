@@ -1,0 +1,259 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require rails_bootstrap_forms
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h3 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+i {
+  vertical-align: 0;
+}
+
+.logo {
+  font-size: 45px;
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+  color: #3981bf;
+}
+
+.center {
+  position: relative;
+}
+
+.home {
+  background-color: #aaa;
+  padding: 3em 5em 1em 5em;
+  top: 50%;
+  transform: translateY(50%);
+  button {
+    background-color: purple;
+  }
+}
+.heading {
+  background-color: #F5F5F5;
+  padding: 20px;
+  text-align: center;
+  color: #8F9192;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.date {
+  color: #C8C8C8;
+}
+
+.contribute {
+  color: #FD706C;
+  text-align: center;
+  margin-bottom: -10px;
+}
+
+.pay-now {
+  font-size: 6.5em;
+  font-weight: 600;
+  letter-spacing: .1em;
+  color: #FD706C;
+  text-align: center;
+  button {
+    background-color: #FD706C;
+    color: white;
+    bottom: 0;
+    border-radius: .5em;
+    font-size: .3em;
+    padding: .2em .5em .4em .5em;
+  }
+  button:hover {
+    background-color: #ff9693;
+    color: white;
+  }
+}
+
+.overall-cost {
+  margin-bottom: 20px;
+  color: #A0A4AA;
+  font-size: 1.2em;
+}
+
+.border-right {
+    border-right: 1px solid #C3C3C3;
+}
+
+.list {
+  background-color: #F5F5F5;
+  min-height: 350px;
+  height: 100%;
+  color: #919191;
+  font-size: 2em;
+  .title {
+    background-color: #EAEAEA;
+    font-size: 20px;
+    color: #A9A9A9;
+    text-align: center;
+    padding: 20px;
+  }
+  .light {
+    color: #ccc;
+  }
+  .padding-left {
+    padding: .5em 0 0 2em;
+  }
+}
+
+.icon {
+  min-width: 30px;
+  text-align: center;
+  color: #3AB9DC;
+  margin-top: 30px;
+  i {
+    width: 1em;
+    background-color: white;
+    border-radius: 50%;
+  }
+}
+
+.sidebar {
+  position: relative;
+  background-color: #192129;
+  min-height: 100%;
+  border: 2px solid #888;
+  color: #93AEC6;
+  padding-bottom: 40px;
+
+}
+
+.sign-in {
+  margin: 20px auto 0 auto;
+  text-align: center;
+}
+
+.profile {
+  background-color: #192129;
+  min-height: 220px;
+  padding: 1.5em 1.5em 1em 1.5em;
+  margin: 0 auto;
+}
+
+.circle {
+  background: image-url('profile.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 8vw;
+  height: 8vw;
+  border: 2px solid #888;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.trip-comments {
+  position: relative;
+  background-color: #ccc;
+  min-height: 770px;
+  min-width: 100%;
+  .heading {
+    background-color: #D4D4D4;
+    color: white;
+    text-align: center;
+    min-height: 70px;
+    position: relative;
+    h3 {
+      position: relative;
+    }
+  }
+  .bottom {
+    position: absolute;
+    height: 80px;
+    width: 100%;
+    background-color: #D3D3D3;
+    bottom: 0;
+    input {
+      padding: .4em;
+      width: 16em;
+      font-size: 1.4em;
+      border-radius: .3em;
+      border: 0;
+      display: block;
+      margin: 1em auto;
+    }
+  }
+}
+
+.event-header {
+  background-color: #212B35;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+
+}
+
+.event-link {
+  background-color: #2A3643;
+  margin: 10px auto 0 auto;
+  padding: 10px;
+  text-align: center;
+  color: #7F8FA2;
+}
+
+.event-link:hover {
+  background-color: #fff;
+}
+
+.participant {
+  background-color: #31404F;
+  padding: .05em;
+  text-align: center;
+  color: #6D7A8A;
+}
+
+.red {
+  color: #FD706C;
+  text-align: center;
+}
+
+.green {
+  color: #2AC100;
+}
+
+.gray {
+  color: #333333;
+}
+
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
