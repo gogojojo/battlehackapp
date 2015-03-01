@@ -51,8 +51,8 @@ class EventsController < ApplicationController
          @event.participants.delete(current_user.id.to_s)
          @event.amount.delete_at(@index)
       else
-      @event.participants << current_user.id
-      @event.amount << 0
+        @event.participants << current_user.id
+        @event.amount << 0
       end
     end
     if @event.save
@@ -67,7 +67,7 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :description, :cost, :date, :user_id, :participants, :event)
   end
   def participants
-    @event = Event.find(params[:id])
+    @event = Event.find_by(id: 21)
     @participants = @event.participants
   end
 end

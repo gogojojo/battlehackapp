@@ -7,17 +7,20 @@
         <div class="col-sm-12 ">
           <div class="heading">
             <span class="date"><h4>21st December 2015  &nbsp;<%= fa_icon "calendar" %> <br></h4></span>
-            <h1> <%= @event.title.upcase %> </h1> 
-            organized by: <%= @event.user.name %> <br>
             <h2> Participants </h2>
-            <% @participants.each do |p| %>
-            <%= p.name %> 
-            <% end %>
-          </div>
+            <% @event = Event.find(params[:id]) %>
+            <% @participants = Event.find(params[:id]).participants %>
+                      </div>
         </div>
         <div class="col-sm-12"><br>
         <div class="container">
           <div class="row">
+          <% @participants.each do |p| %> 
+              <% @a = User.find_by(id: p) %> 
+               Name: <%= @a.name %> <br>
+               email: <%= @a.email %> <br>
+               Paid amount: <%= @event.amount[@event.participants.index(p)] %> <br>
+            <% end %>
 
             </div>
           </div>
