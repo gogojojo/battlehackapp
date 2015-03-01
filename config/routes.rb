@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'orders/new'
 
   get '/' => 'application#index'
+  get 'events/:id/participants' => 'events#participants'
   resources :users
   resources :events
   resources :orders
