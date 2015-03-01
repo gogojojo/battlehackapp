@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   end
   def show
     @event = Event.find(params[:id])
+ 
   end
   def new
     @event = Event.new
@@ -41,7 +42,11 @@ class EventsController < ApplicationController
       @event.participants =[]
       @event.participants << current_user.id
     else
+      if @event.participants.include?(current_user.id.to_s)
+        @event.participants.delete(current_user.id.to_s)
+      else
       @event.participants << current_user.id
+      end
     end
     if @event.save
       redirect_to event_path(@event.id)
