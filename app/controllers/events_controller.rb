@@ -5,6 +5,8 @@ class EventsController < ApplicationController
   end
   def show
     @event = Event.find(params[:id])
+    
+  @client_token = Braintree::ClientToken.generate
  
   end
   def new
