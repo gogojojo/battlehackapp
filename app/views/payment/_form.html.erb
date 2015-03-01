@@ -1,9 +1,13 @@
 <%= form_tag orders_path, method: "post" do %>
   <div id="dropin"></div>
-  <input type='text' name='number'>
+  <% if @event.participants != nil %>
+  <input style='display:none;' type='text' name='number' value = <%= (@event.cost/@event.participants.length).round(2)%>>
 <%#this will be hidden div %>
-  <input type='text' value=<%=@event.id%> name='id'>
-  <input type="submit"  %>
+  <input style='display: none;' type='text' value=<%=@event.id%> name='id'>
+  <div class="contribute">you need to contribute before 15/12/15</div>
+
+   <span class="pay-now">$<%= ((@event.cost/@event.participants.length) - (@event.amount[@event.participants.index(current_user.id.to_s)])).round(2)  %><button  class="btn btn-default" type="submit"  %> pay now</button></span>
+<% end %>
 <% end %>
 
 
