@@ -1,0 +1,7 @@
+<%= form_for @event do |f| %>
+title: <%= f.text_field :title %>
+description: <%= f.text_area :description %>
+cost: <%= f.number_field :cost %>
+date: <%= f.text_field :date %>
+<%= f.submit %>
+<% end %>
