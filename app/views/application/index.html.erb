@@ -1,0 +1,6 @@
+<%= link_to 'create event', new_event_path %>
+<%= @current_user.name %>
+<% @current_user.events.each do |v| %>
+<h1> <%= v.title %> </h1> 
+<%= link_to 'show event', event_path(v.id) %>
+<% end %>
