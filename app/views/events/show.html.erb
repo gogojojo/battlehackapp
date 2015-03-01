@@ -10,9 +10,9 @@
               <span class="date"><h4>21st December 2015  &nbsp;<%= fa_icon "calendar" %> <br></h4></span>
               <h1> <%= @event.title.upcase %> </h1> 
               organized by: <%= @event.user.name %> <br>
-              total cost: $<%= @event.cost %><br>
+              total cost: $<%= @event.cost.round %><br>
               <% if @event.amount != nil %>
-              remaining balance: $<%= @event.cost - (@event.amount.reduce(:+)) %>
+              remaining balance: $<%= @event.cost.round - (@event.amount.reduce(:+).round) %>
               <% end %>
             </div>
           </div>
@@ -26,7 +26,7 @@
               <% end %>
           
               <% if @event.participants.include?(current_user.id.to_s) %>
-              <% if ( ((@event.cost/@event.participants.length) - (@event.amount[@event.participants.index(current_user.id.to_s)])).round(2) ) < 1   %>
+              <% if ( ((@event.cost/10) - (@event.amount[@event.participants.index(current_user.id.to_s)])).round ) < 1   %>
               <span class ="pay-now"> Thanks for Chipping In </span>
               <% else %>
               <%= render 'payment/form' %>
@@ -41,13 +41,10 @@
             
           </div>
           <div class="col-sm-12 text-center">
-            <div class="contribute">you need to contribute before 15/12/15</div>
-            <span class="pay-now">$230.00 <button class="btn btn-default">pay now</button></span>
-            <div class="overall-cost">Overall cost: $<%= @event.cost %> split between 20<%# @event.participants %> participants<br></div>
           </div>
           <% if @event.participants != nil %>
        
-          <div class="overall-cost">Overall cost: $<%= @event.cost %> split between <%= @event.participants.length %> participants<br></div>
+          <div class="overall-cost">Overall cost: $<%= @event.cost.round %> split between 10 participants<br></div>
           </div>        
           <% end %>
         </div>

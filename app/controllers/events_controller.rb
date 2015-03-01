@@ -40,7 +40,7 @@ class EventsController < ApplicationController
   end
  def addparticipants
     @event = Event.find(params[:id])
-    if @event.participants === nil
+    if @event.participants ='{}'
       @event.amount = []
       @event.amount << 0
       @event.participants =[]
