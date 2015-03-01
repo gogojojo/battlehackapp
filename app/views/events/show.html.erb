@@ -1,3 +1,4 @@
+
   <div class="row no-gutters">
     <div class="col-sm-2">
      <%= render 'sidebar' %>
@@ -9,11 +10,29 @@
               <span class="date"><h4>21st December 2015  &nbsp;<%= fa_icon "calendar" %> <br></h4></span>
               <h1> <%= @event.title.upcase %> </h1> 
               organized by: <%= @event.user.name %> <br>
+              total cost $<%= @event.cost %><br>
             </div>
           </div>
           <div class="col-sm-12 text-center">
               <%= link_to 'edit event', edit_event_path(@event.id) %> | 
-              <%= link_to 'add participants', part_path %><br>
+              <% if @event.participants != nil %>
+              cost per participant $<%= (@event.cost/@event.participants.length) %><br>
+              <% if @event.participants.include?(current_user.id.to_s) %>
+                <%= link_to 'remove yoself', part_path %><br>
+              <% else %>
+                <%= link_to 'add yoself', part_path %><br>
+              <% end %>
+              <h2> List of Participants </h2>
+              <% @event.participants.each do |event| %>
+              Paid amount: <%= @event.amount[@event.participants.index(event)] %>
+              <% @a = User.find_by(id: event) %> <br>
+              <%= @a.name %>  <br>
+              <%= @a.email %><br>
+              <% end %>
+            <% else %>
+              <%= link_to 'add yoself', part_path %>
+            <% end %>
+            <%= render 'payment/form' %>
           </div>
           <div class="col-sm-12 text-center">
             <div class="contribute">you need to contribute before 15/12/15</div>
@@ -47,3 +66,6 @@
       <%= render 'chat' %>
     </div>
   </div>
+
+<%= render 'payment/form' %>
+

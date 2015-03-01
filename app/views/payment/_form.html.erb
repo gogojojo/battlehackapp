@@ -1,0 +1,22 @@
+<%= form_tag orders_path, method: "post" do %>
+  <div id="dropin"></div>
+  <input type='text' name='number'>
+<%#this will be hidden div %>
+  <input type='text' value=<%=@event.id%> name='id'>
+  <input type="submit"  %>
+<% end %>
+
+
+<script type="text/javascript">
+  function setupBT() {
+    braintree.setup("<%=@client_token%>", 'dropin', {
+      container: 'dropin'
+    });
+  }
+  if (window.addEventListener)
+    window.addEventListener("load", setupBT, false);
+  else if (window.attachEvent)
+    window.attachEvent("onload", setupBT);
+  else window.onload = setupBT;
+  </script>
+</script>
