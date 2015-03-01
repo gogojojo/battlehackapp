@@ -35,8 +35,23 @@ class EventsController < ApplicationController
     @event.destroy
     redirect_to '/'
   end
+  def addparticipants
+    @event = Event.find(params[:id])
+    if @event.participants === nil
+      @event.participants =[]
+      @event.participants << current_user.id
+    else
+      @event.participants << current_user.id
+    end
+    if @event.save
+      redirect_to event_path(@event.id)
+    end
+  end
+  def deleteparticipant
+    @event = Event.find(params[:id])
+  end
   private
   def event_params
-    params.require(:event).permit(:title, :description, :cost, :date, :user_id)
+    params.require(:event).permit(:title, :description, :cost, :date, :user_id, :participants, :event)
   end
 end

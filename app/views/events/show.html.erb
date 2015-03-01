@@ -1,2 +1,15 @@
 <h1> <%= @event.title %> </h1> 
-organized by: <%= @event.user.name %> 
+organized by: <%= @event.user.name %> <br> 
+total cost $<%= @event.cost %><br>
+cost per participant $<%= (@event.cost/@event.participants.length) %><br>
+<%= link_to 'edit event', edit_event_path(@event.id) %><br>
+<%= link_to 'add participants', part_path %><br>
+<h2> List of Participants </h2>
+<% @event.participants.each do |event| %>
+<% @a = User.find_by(id: event) %> <br>
+<%= @a.name %>  <br>
+<%= @a.email %><br>
+<%= button_to "Delete Participant", { :controller => 'events',
+  :id => event}, 
+  :method => :deleteparticipant %>
+<% end %>
