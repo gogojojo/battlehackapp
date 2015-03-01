@@ -12,8 +12,6 @@ class OrdersController < ApplicationController
   )
   redirect_to  event_path(params[:id])
   event = Event.find(params[:id])
-  puts event.cost
-  event.cost = (event.cost.to_f - @amount.to_f)
   index = event.participants.index(current_user.id.to_s)
   event.amount[index] = @amount 
   event.save
