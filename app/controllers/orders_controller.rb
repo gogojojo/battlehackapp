@@ -3,13 +3,18 @@ class OrdersController < ApplicationController
   @client_token = Braintree::ClientToken.generate
   end
   def create
-  @params = params[:number]
-    nonce = params[:payment_method_nonce]
+  config.logger = Logger.new(params[:number])
+  amount = params[:number]
+  nonce = params[:payment_method_nonce]
   render action: :new and return unless nonce
   result = Braintree::Transaction.sale(
-    amount: @params, 
+    amount: amount, 
     payment_method_nonce: nonce
   )
-  redirect_to new_order_path 
+  redirect_to  event_path(params[:id])
+  event = Event.find(params[:id])
+  puts event.cost
+  event.cost = (event.cost.to_f - amount.to_f)
+  event.save
   end
 end
