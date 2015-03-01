@@ -3,7 +3,6 @@ class OrdersController < ApplicationController
   @client_token = Braintree::ClientToken.generate
   end
   def create
-  config.logger = Logger.new(params[:number])
   @amount = params[:number]
   nonce = params[:payment_method_nonce]
   render action: :new and return unless nonce
