@@ -11,6 +11,7 @@ total cost $<%= @event.cost %><br>
   <% end %>
   <h2> List of Participants </h2>
   <% @event.participants.each do |event| %>
+  Paid amount: <%= @event.amount[@event.participants.index(event)] %>
   <% @a = User.find_by(id: event) %> <br>
   <%= @a.name %>  <br>
   <%= @a.email %><br>

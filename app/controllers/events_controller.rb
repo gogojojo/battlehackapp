@@ -38,16 +38,21 @@ class EventsController < ApplicationController
     @event.destroy
     redirect_to '/'
   end
-  def addparticipants
+ def addparticipants
     @event = Event.find(params[:id])
     if @event.participants === nil
+      @event.amount = []
+      @event.amount << 0
       @event.participants =[]
       @event.participants << current_user.id
     else
       if @event.participants.include?(current_user.id.to_s)
-        @event.participants.delete(current_user.id.to_s)
+         @index = @event.participants.index(current_user.id.to_s)
+         @event.participants.delete(current_user.id.to_s)
+         @event.amount.delete_at(@index)
       else
       @event.participants << current_user.id
+      @event.amount << 0
       end
     end
     if @event.save
