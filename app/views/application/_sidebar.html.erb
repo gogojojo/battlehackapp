@@ -1,5 +1,5 @@
 <div class="sidebar">
-  <div class="logo">Trippin'</div>
+  <div class="logo">Trippin</div>
   <div class="profile">
     <% if current_user %>
           <div class="circle"></div>
@@ -16,8 +16,8 @@
   <% current_user.events.each do |v| %>
     <%= link_to event_path(v.id) do%>
       <div class="event-link">
-        <p><%= v.title %></p>
-        <h3 class="red">25 Days 12:53</h3>
+        <p>Trip to San Francisco</p>
+        <h3 class="red"><%= fa_icon "clock-o" %> 25 Days</h3>
       </div>
       <div class="participant">
         <h4><%= fa_icon "user" %> &nbsp; participants</h4>

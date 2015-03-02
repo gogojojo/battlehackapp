@@ -38,10 +38,13 @@ i {
   vertical-align: 0;
 }
 
-.login {
+.background-start {
+  min-height: 1000px;
   background: image-url("background.jpeg") no-repeat center center fixed;
-  width: 100%;
-  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .logo {
@@ -51,19 +54,42 @@ i {
   color: #3981bf;
 }
 
+.logo2 {
+  font-size: 45px;
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+  color: #5BC0DE;
+}
+
+.logo3 {
+  font-size: 80px;
+  font-family: 'Dancing Script', cursive;
+  text-align: left;
+  color: #fff;
+
+}
+
+.box {
+  background: #fff;
+  width: 125px;
+  height: 53px;
+  border-radius: 10px;
+  text-align: center;
+}
 .center {
   position: relative;
 }
 
 .home {
-  background-color: #aaa;
   padding: 3em 5em 1em 5em;
   top: 50%;
   transform: translateY(50%);
-  button {
-    background-color: purple;
+  width: 500px;
+  .btn {
+    color: white;
   }
 }
+
 .heading {
   background-color: #F5F5F5;
   padding: 20px;
@@ -100,6 +126,9 @@ i {
     background-color: #ff9693;
     color: white;
   }
+  .heading-green {
+    color: #2AC100;
+  }
 }
 
 .overall-cost {
@@ -114,7 +143,7 @@ i {
 
 .list {
   background-color: #F5F5F5;
-  min-height: 350px;
+  min-height: 410px;
   height: 100%;
   color: #919191;
   font-size: 2em;
@@ -148,7 +177,7 @@ i {
 .sidebar {
   position: relative;
   background-color: #192129;
-  min-height: 770px;
+  min-height: 1200px;
   weight: 100%;
   border: 2px solid #888;
   color: #93AEC6;
@@ -183,7 +212,7 @@ i {
 .trip-comments {
   position: relative;
   background-color: #ccc;
-  min-height: 770px;
+  min-height: 1200px;
   min-width: 100%;
   .heading {
     background-color: #D4D4D4;
@@ -252,6 +281,14 @@ i {
 
 .gray {
   color: #333333;
+}
+
+.white {
+  color: #fff;
+}
+
+.blue {
+  color: #5BC0DE;
 }
 
 .row.no-gutters {
