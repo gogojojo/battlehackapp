@@ -15,5 +15,8 @@ class OrdersController < ApplicationController
   index = event.participants.index(current_user.id.to_s)
   event.amount[index] = @amount 
   event.save
+    if event.save
+      UserNotifier.send_payment_receipt_email(@user).deliver
+    end
   end
 end
