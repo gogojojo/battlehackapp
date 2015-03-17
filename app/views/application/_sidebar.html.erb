@@ -16,7 +16,7 @@
   <% current_user.events.each do |v| %>
     <%= link_to event_path(v.id) do%>
       <div class="event-link">
-        <p>Trip to San Francisco</p>
+        <p><%= v.title %></p>
         <h3 class="red"><%= fa_icon "clock-o" %> 25 Days</h3>
       </div>
       <div class="participant">
